@@ -75,9 +75,9 @@ def generate_embed(post, feed):
     else:
         post_url = post['preview_file_url']
 
-    return [{
+    return {'embeds':[{
         'title': f"New post in {feed['name']}",
-        'url': DANBOORU_URL_BASE + str(post['id'])
+        'url': DANBOORU_URL_BASE + str(post['id']),
         'color': int(feed['color'], 16),
         'timestamp': convert_to_utc(post['created_at']),
         'image': { 'url': post_url },
@@ -86,7 +86,7 @@ def generate_embed(post, feed):
            'name': 'Source',
            'value': source_link(post)
         }]
-    }]
+    }]}
 
 
 def queue_posts(results, feed, recent):
