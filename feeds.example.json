@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Safe Feed",
+    "booru": "https://danbooru.donmai.us/posts.json?tags=1girl+rating:s",
+    "webhook": "WEBHOOK URL HERE",
+    "blacklist": ["1boy"],
+    "color": "0000ff"
+  },
+  {
+    "name": "Non-Safe Feed",
+    "booru": "https://danbooru.donmai.us/posts.json?tags=1girl+-rating:s",
+    "webhook": "WEBHOOK URL HERE",
+    "blacklist": [],
+    "color": "ff0000"
+  }
+]
