@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import json
 import os
 import logging
@@ -196,7 +197,6 @@ def is_running():
     if has_to_stop:
         os.remove("STOP-DISCORDBOORU")
     return not has_to_stop
-
 
 
 def main():
