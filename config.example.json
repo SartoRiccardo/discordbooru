@@ -1,9 +1,0 @@
-{
-  "username": "DANBOORU USERNAME HERE",
-  "api_key": "DANBOORU API KEY HERE",
-  "danbooru_url_base": "https://danbooru.donmai.us/posts/",
-  "pixiv_url_base": "https://www.pixiv.net/artworks/",
-  "tag_blacklist": ["loli", "shota", "guro", "bestiality", "banned_artist"],
-  "source_blacklist": ["example.com"],
-  "image_types": ["png", "jpeg", "jpg", "gif"]
-}

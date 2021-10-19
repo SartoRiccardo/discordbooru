@@ -1,16 +1,29 @@
 [
   {
-    "name": "Safe Feed",
-    "booru": "https://danbooru.donmai.us/posts.json?tags=1girl+rating:s",
-    "webhook": "WEBHOOK URL HERE",
-    "blacklist": ["1boy"],
-    "color": "0000ff"
+    "name": "Alice SFW Feed",
+    "tags": ["alice_margatroid"],
+    "webhook": "WEBHOOK_URL",
+    "blacklist": [],
+    "color": "0000ff",
+    "is_nsfw": false,
+    "only_nsfw": false
   },
   {
-    "name": "Non-Safe Feed",
-    "booru": "https://danbooru.donmai.us/posts.json?tags=1girl+-rating:s",
-    "webhook": "WEBHOOK URL HERE",
+    "name": "Alice NSFW Feed",
+    "tags": ["alice_margatroid"],
+    "webhook": "WEBHOOK_URL",
     "blacklist": [],
-    "color": "ff0000"
+    "color": "ff00ff",
+    "is_nsfw": true,
+    "only_nsfw": false
+  },
+  {
+    "name": "Generic Alice Feed",
+    "tags": ["alice_margatroid"],
+    "webhook": "WEBHOOK_URL",
+    "blacklist": [],
+    "color": "ff00ff",
+    "is_nsfw": true,
+    "only_nsfw": true
   }
 ]
