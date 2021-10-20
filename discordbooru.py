@@ -51,6 +51,10 @@ def convert_to_utc(date_string):
 
 
 def check_blacklist(post, feed):
+    # Check if it's banned from danbooru
+    if post["is_banned"]:
+        return f"Rejected a post in {feed['name']}, is banned from Danbooru"
+
     # Check for tags individually in both global and feed-specific blacklists.
     post_tags = post['tag_string'].split()
     for tag in chain(TAG_BLACKLIST, feed['blacklist']):
