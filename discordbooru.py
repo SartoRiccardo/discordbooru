@@ -232,4 +232,7 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as exc:
+        logger.critical(exc, exc_info=True)
