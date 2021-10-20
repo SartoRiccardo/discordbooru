@@ -128,3 +128,4 @@ config.json
 config.py
 feeds.json
 .idea
+nohup.out
