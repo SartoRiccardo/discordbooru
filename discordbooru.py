@@ -171,6 +171,19 @@ def make_post(feed, post):
         raise
 
 
+def most_recent_unbanned(booru_results):
+    """
+    Get the first booru post from an artist that isn't banned.
+    That's because posts from banned artists don't have the id field.
+    :param booru_results: List<dict>: A list of booru results.
+    :return: dict: The first booru result that is not banned.
+    """
+    for result in booru_results:
+        if "id" in result:
+            return result
+    return None
+
+
 def check_feed(feed, recents):
     logger.info(f"Checking new posts for {feed['name']}")
     # Get the most recent search results for this feed.
@@ -179,7 +192,9 @@ def check_feed(feed, recents):
     # Check if the feed even has a most recent post ID.
     if feed['name'] in recents.keys():
         posts = queue_posts(booru_results, feed, recents[feed['name']])
-        recents[feed['name']] = booru_results[0]['id']
+        recent = most_recent_unbanned(booru_results)
+        if recent is not None:
+            recents[feed['name']] = recent['id']
         for post in reversed(posts):
             make_post(feed, post)
     else:
