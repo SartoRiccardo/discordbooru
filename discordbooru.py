@@ -109,13 +109,13 @@ def generate_embed(post, feed):
     }]}
 
 
-def queue_posts(results, feed, recent: int, page=1):
+def queue_posts(results, feed, recent: int, next_page=1):
     """
     Gather new posts
     :param results: The results from the previous pages.
     :param feed: Data about the feed we want to retrieve.
     :param recent: The ID of the most recent post we have.
-    :param page: The current page we're looking at.
+    :param next_page: The current page we're looking at.
     :return: List: A list of new posts.
     """
     # Check if there's even any results.
@@ -142,8 +142,8 @@ def queue_posts(results, feed, recent: int, page=1):
 
     # Out of options and desperate for answers, I booked a flight to the next page
     logger.info(f"Reached end of page for {feed['name']}, going to next")
-    next_page_results = client.post_list(page=page+1, tags=feed["tags"])
-    next_page_queue = queue_posts(next_page_results, feed, recent)
+    next_page_results = client.post_list(page=next_page, tags=feed["tags"])
+    next_page_queue = queue_posts(next_page_results, feed, recent, next_page+1)
     new_posts.extend(next_page_queue)
     logger.info(f"{len(new_posts)} posts in {feed['name']} queue")
     return new_posts
