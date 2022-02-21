@@ -15,15 +15,15 @@
     "blacklist": [],
     "color": "ff00ff",
     "is_nsfw": true,
-    "only_nsfw": false
+    "only_nsfw": true
   },
   {
-    "name": "Generic Alice Feed",
+    "name": "Alice SFW and NSFW Feed",
     "tags": ["alice_margatroid"],
     "webhook": "WEBHOOK_URL",
     "blacklist": [],
     "color": "ff00ff",
     "is_nsfw": true,
-    "only_nsfw": true
+    "only_nsfw": false
   }
 ]
