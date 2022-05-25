@@ -18,7 +18,7 @@ from config import USERNAME, API_KEY, DANBOORU_URL_BASE, PIXIV_URL_BASE, TAG_BLA
 
 
 class DanbooruRating:
-    SFW = 's'
+    SFW = ['s', 'g']
     LEWD = 'q'
     NSFW = 'e'
 
@@ -67,11 +67,11 @@ def check_blacklist(post, feed):
             return f"Rejected post {post['id']} in {feed['name']}, contains blacklisted source {source}"
 
     # Check if the post is NSFW in a SFW feed.
-    if post["rating"] != "s" and not feed["is_nsfw"]:
+    if post["rating"] not in DanbooruRating.SFW and not feed["is_nsfw"]:
         return f"Rejected post {post['id']} in {feed['name']}, is NSFW in a SFW feed"
 
     # Check if the post is SFW in a NSFW-only feed.
-    if post["rating"] == "s" and feed["is_nsfw"] and feed["only_nsfw"]:
+    if post["rating"] in DanbooruRating.SFW and feed["is_nsfw"] and feed["only_nsfw"]:
         return f"Rejected post {post['id']} in {feed['name']}, is SFW in a NSFW-only feed"
 
     return None
